@@ -1,4 +1,4 @@
-# GAOMON-S620-in-LINUX
+# GAOMON-M106K Pro-in-LINUX
 Configuring the GAOMON M106K Pro graphics tablet in Linux MINT / DEBIAN / UBUNTU / MX / openSUSE
 
 Out of the box the device works immediately. Positions normally, but is detected by the system as some variant of the touchpad in the SETUP/Mouse and Touchpad menu. Pressing force is displayed correctly in the Krita graphical editor, but the function keys don't work.
