@@ -9,7 +9,7 @@ The following is required for the device to work fully:
 
 1. change file **/usr/share/X11/xorg.conf.d/70-wacom.conf** for openSUSE **/etc/X11/xorg.conf.d/70-wacom.conf** (for older versions of LM - 50-wacom.conf. This software does not work with buttons. You can update the wacom driver from the Wacom page on github: https://github.com/linuxwacom/input-wacom/wiki/Installing-input-wacom-from-source ), added to the end of file:
 ```
-#Gaomon S620
+#Gaomon M106K_Pro
 Section "InputClass"
 Identifier "GAOMON Gaomon Tablet"
 MatchUSBID "256c:006d"
@@ -40,23 +40,33 @@ xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 1 "***"
 xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 2 "***"
 xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 3 "***"
 xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 8 "***"
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 9 "***"
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 10 "***"
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 11 "***"
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 12 "***"
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 13 "***"
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 14 "***"
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 15 "***"
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 16 "***"
 ```
 where `***` is the combination described above.
 
- ![CH341A programmer device](https://github.com/bigbigmdm/GAOMON-S620-in-LINUX/raw/main/gaomon_s620.png)  
+ ![CH341A programmer device](https://github.com/bigbigmdm/GAOMON-S620-in-LINUX/raw/main/gaomon_m106k_pro.png)  
 
 From these commands you can create a BASH file and run it before using the tablet: 
 ```
 #!/bin/bash
-# TABLET KEY SETTINGS GAOMON S620
-xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 1 "key +ctrl c -ctrl"
-xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 2 "key +ctrl v -ctrl"
-xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 3 "key +ctrl - -ctrl"
-xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 8 "key +ctrl + -ctrl"
-# GAOMON S620 PEN KEY SETTINGS
+# TABLET KEY SETTINGS GAOMON M106K
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 1 "key +ctrl - -ctrl"
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 2 "key +ctrl + -ctrl"
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 3 "key +ctrl c -ctrl"
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 8 "key +ctrl v -ctrl"
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 9 "key +ctrl z -ctrl"
+xsetwacom --set 'GAOMON Gaomon Tablet Pad pad' Button 10 "key +ctrl +shift z -shift -ctrl"
+# GAOMON M106K PEN KEY SETTINGS
 xsetwacom --set 'GAOMON Gaomon Tablet Pen stylus' Button 2 "key del"
 ```
-- file that reassigns the lower pen key to Del (for easy erasing of selected fragment), four tablet keys for copy, paste, reduce scaling, enlarge scaling functions.
+- file that reassigns the lower pen key to Del (for easy erasing of selected fragment), four tablet keys for copy, paste, reduce scaling, enlarge scaling, undo, redo functions (for Krita).
 
 A list of supported keys can be seen with the command **`xsetwacom --list modifiers`**
 
