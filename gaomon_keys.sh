@@ -6,9 +6,7 @@
 #devname_pad="GAOMON Gaomon Tablet Pad pad"
 #devname_stylus="GAOMON Gaomon Tablet Pad stylus"
 
-
 # so @speculatrix rewrote this to work out the device name automatically...
-
 devname_pad=$( xsetwacom list devices | sed -e 's/[[:space:]]*id.*//g' | grep 'Pad pad')
 devname_stylus=$( xsetwacom list devices | sed -e 's/[[:space:]]*id.*//g' | grep 'Pen stylus')
 
@@ -24,8 +22,9 @@ devname_stylus=$( xsetwacom list devices | sed -e 's/[[:space:]]*id.*//g' | grep
 # | 15 | 16 |
 # -----------
 
+# Note: comments reflect GIMP shortcuts, most work for Krita except export
+
 # TABLET BUTTON SETTINGS
-# comments reflect GIMP shortcuts, most work for Krita except export
 xsetwacom --set "$devname_pad" Button 1 "key +ctrl - -ctrl"			# zoom out
 xsetwacom --set "$devname_pad" Button 2 "key +ctrl +shift + -shift -ctrl"	# zoom in
 xsetwacom --set "$devname_pad" Button 3 "key +ctrl c -ctrl"			# copy
