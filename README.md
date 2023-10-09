@@ -17,6 +17,10 @@ MatchDevicePath "/dev/input/event*"
 Driver "wacom"
 EndSection
 ```
+
+Note that another person, @speculatrix, found his tablet has usb ID 256c:0063,
+so use "lsusb" and check what you see and amend the above pattern if required.
+
 2. After rebooting, the **xsetwacom --list** command will output the following:
 ```
 GAOMON Gaomon Tablet Pen stylus id: XX type: STYLUS    
