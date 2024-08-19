@@ -3,7 +3,7 @@ Configuring the GAOMON M106K Pro graphics tablet in Linux MINT / DEBIAN / UBUNTU
 
 Out of the box the device works immediately. Positions normally, but is detected by the system as some variant of the touchpad in the SETUP/Mouse and Touchpad menu. Pressing force is displayed correctly in the Krita graphical editor, but the function keys don't work.
 
-The **lsusb** command identifies it as **256c:006d**. It might also be 256c:006e - @speculatrix, found his tablet which was bought in early 2024 had a different ID.
+The **lsusb** command identifies it as **256c:006d**. It might also be 256c:006e - @speculatrix, found his tablet which was bought in late 2023 had a different ID.
 so amend the above identifier as needed.
 
 The following is required for the device to work fully:
