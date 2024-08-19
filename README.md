@@ -3,23 +3,23 @@ Configuring the GAOMON M106K Pro graphics tablet in Linux MINT / DEBIAN / UBUNTU
 
 Out of the box the device works immediately. Positions normally, but is detected by the system as some variant of the touchpad in the SETUP/Mouse and Touchpad menu. Pressing force is displayed correctly in the Krita graphical editor, but the function keys don't work.
 
-The **lsusb** command identifies it as **256c:006d**.
+The **lsusb** command identifies it as **256c:006d**. It might also be 256c:006e - @speculatrix, found his tablet which was bought in early 2024 had a different ID.
+so amend the above identifier as needed.
 
 The following is required for the device to work fully:
 
-1. change file **/usr/share/X11/xorg.conf.d/70-wacom.conf** for openSUSE **/etc/X11/xorg.conf.d/70-wacom.conf** (for older versions of LM - 50-wacom.conf. This software does not work with buttons. You can update the wacom driver from the Wacom page on github: https://github.com/linuxwacom/input-wacom/wiki/Installing-input-wacom-from-source ), added to the end of file:
+1. create a file called **/usr/share/X11/xorg.conf.d/71-gaomon.conf** (in openSUSE it would be **/etc/X11/xorg.conf.d/7-gaomon.conf**). For older versions of LM - 51-gaomon.conf. This software does not work with buttons. You can update the wacom driver from the Wacom page on github: https://github.com/linuxwacom/input-wacom/wiki/Installing-input-wacom-from-source ), added to the end of file:
 ```
 #Gaomon M106K_Pro
-Section "InputClass"
-Identifier "GAOMON Gaomon Tablet"
-MatchUSBID "256c:006d"
-MatchDevicePath "/dev/input/event*"
-Driver "wacom"
-EndSection
+    Section "InputClass"
+    Identifier "GAOMON Gaomon Tablet"
+    MatchUSBID "256c:006d"
+    # comment above and uncomment below as required
+    #MatchUSBID "256c:006e"
+    MatchDevicePath "/dev/input/event*"
+    Driver "wacom"
+    EndSection
 ```
-
-Note that another person, @speculatrix, found his tablet has usb ID 256c:006e,
-so use "lsusb" and check what you see and amend the above pattern if required.
 
 2. After rebooting, the **xsetwacom --list** command will output the following:
 ```
